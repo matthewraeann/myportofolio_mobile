@@ -61,6 +61,7 @@ Seluruh hasil ditinjau kembali dan disesuaikan secara manual dengan kebutuhan pr
 1. Analisis rubrik tugas dan buat checklist implementasi Flutter.
 2. Rapikan struktur kode aplikasi menjadi model dan widget yang modular.
 3. Sesuaikan kartu aksi, pesan `SnackBar`, dan tata letak responsif dengan rubrik.
+Link: https://chatgpt.com/s/cx_6afaede060b08191b247f39639ce2b5f
 
 ### Evaluasi bantuan AI dan perbaikan manual
 
