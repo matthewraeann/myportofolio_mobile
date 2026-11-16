@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:myportofolio_mobile/models/item_homepage.dart';
 
+/// Kartu aksi portofolio dengan warna, ikon, dan umpan balik sentuhan.
+///
+/// [ItemHomepage] menjadi satu-satunya sumber data kartu sehingga penambahan
+/// aksi baru cukup dilakukan pada daftar data di halaman utama.
 class ItemCard extends StatelessWidget {
   const ItemCard({super.key, required this.item});
 

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// Menampilkan satu informasi identitas pemilik portofolio secara konsisten.
+///
+/// Lebar kartu dikirim dari halaman induk agar susunan kartu dapat menyesuaikan
+/// ukuran layar tanpa menduplikasi aturan responsif di setiap kartu.
 class InfoCard extends StatelessWidget {
   const InfoCard({
     super.key,
