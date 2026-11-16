@@ -12,18 +12,18 @@ class MyHomePage extends StatelessWidget {
 
   static const List<ItemHomepage> items = [
     ItemHomepage(
-      name: 'Experience',
-      icon: Icons.work_outline,
+      name: 'Lihat Proyek',
+      icon: Icons.folder_outlined,
       color: Color(0xFF4F46A5),
     ),
     ItemHomepage(
-      name: 'Education',
-      icon: Icons.school_outlined,
+      name: 'Tambah Proyek',
+      icon: Icons.add_circle_outline,
       color: Color(0xFFD97706),
     ),
     ItemHomepage(
-      name: 'Projects',
-      icon: Icons.folder_outlined,
+      name: 'Logout',
+      icon: Icons.logout,
       color: Color(0xFF0F766E),
     ),
   ];
@@ -72,6 +72,14 @@ class MyHomePage extends StatelessWidget {
                         ),
                   ),
                   const SizedBox(height: 24),
+                  Text(
+                    'Aksi Portofolio',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
+                  ),
+                  const SizedBox(height: 16),
                   GridView.count(
                     crossAxisCount: 3,
                     shrinkWrap: true,
