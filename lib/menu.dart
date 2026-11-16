@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:myportofolio_mobile/models/item_homepage.dart';
+import 'package:myportofolio_mobile/widgets/info_card.dart';
+import 'package:myportofolio_mobile/widgets/item_card.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -8,9 +11,21 @@ class MyHomePage extends StatelessWidget {
   final String kelas = 'PBP B';
 
   static const List<ItemHomepage> items = [
-    ItemHomepage('Experience', Icons.work_outline, Color(0xFF4F46A5)),
-    ItemHomepage('Education', Icons.school_outlined, Color(0xFFD97706)),
-    ItemHomepage('Projects', Icons.folder_outlined, Color(0xFF0F766E)),
+    ItemHomepage(
+      name: 'Experience',
+      icon: Icons.work_outline,
+      color: Color(0xFF4F46A5),
+    ),
+    ItemHomepage(
+      name: 'Education',
+      icon: Icons.school_outlined,
+      color: Color(0xFFD97706),
+    ),
+    ItemHomepage(
+      name: 'Projects',
+      icon: Icons.folder_outlined,
+      color: Color(0xFF0F766E),
+    ),
   ];
 
   @override
@@ -72,89 +87,6 @@ class MyHomePage extends StatelessWidget {
               ),
             );
           },
-        ),
-      ),
-    );
-  }
-}
-
-class InfoCard extends StatelessWidget {
-  const InfoCard({
-    super.key,
-    required this.title,
-    required this.content,
-    required this.width,
-  });
-
-  final String title;
-  final String content;
-  final double width;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      child: Card(
-        elevation: 2,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 18),
-          child: Column(
-            children: [
-              Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-              const SizedBox(height: 8),
-              Text(content, textAlign: TextAlign.center),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ItemHomepage {
-  const ItemHomepage(this.name, this.icon, this.color);
-
-  final String name;
-  final IconData icon;
-  final Color color;
-}
-
-class ItemCard extends StatelessWidget {
-  const ItemCard({super.key, required this.item});
-
-  final ItemHomepage item;
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: item.color,
-      borderRadius: BorderRadius.circular(16),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(16),
-        onTap: () {
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(content: Text('Kamu menekan tombol ${item.name}!')),
-            );
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(item.icon, color: Colors.white, size: 32),
-              const SizedBox(height: 8),
-              Text(
-                item.name,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ],
-          ),
         ),
       ),
     );
