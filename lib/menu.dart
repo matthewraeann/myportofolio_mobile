@@ -43,10 +43,12 @@ class MyHomePage extends StatelessWidget {
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
-            final isWide = constraints.maxWidth >= 700;
-            final cardWidth = isWide
+            final isTablet = constraints.maxWidth >= 600;
+            final isWide = constraints.maxWidth >= 900;
+            final profileCardWidth = isTablet
                 ? (constraints.maxWidth - 64) / 3
-                : (constraints.maxWidth - 48) / 3;
+                : constraints.maxWidth;
+            final actionColumnCount = isWide ? 3 : (isTablet ? 2 : 1);
 
             return SingleChildScrollView(
               padding: const EdgeInsets.all(20),
@@ -58,9 +60,21 @@ class MyHomePage extends StatelessWidget {
                     spacing: 12,
                     runSpacing: 12,
                     children: [
-                      InfoCard(title: 'NPM', content: npm, width: cardWidth),
-                      InfoCard(title: 'Nama', content: nama, width: cardWidth),
-                      InfoCard(title: 'Kelas', content: kelas, width: cardWidth),
+                      InfoCard(
+                        title: 'NPM',
+                        content: npm,
+                        width: profileCardWidth,
+                      ),
+                      InfoCard(
+                        title: 'Nama',
+                        content: nama,
+                        width: profileCardWidth,
+                      ),
+                      InfoCard(
+                        title: 'Kelas',
+                        content: kelas,
+                        width: profileCardWidth,
+                      ),
                     ],
                   ),
                   const SizedBox(height: 42),
@@ -81,12 +95,12 @@ class MyHomePage extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   GridView.count(
-                    crossAxisCount: 3,
+                    crossAxisCount: actionColumnCount,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     mainAxisSpacing: 12,
                     crossAxisSpacing: 12,
-                    childAspectRatio: isWide ? 1.6 : 1.0,
+                    childAspectRatio: isWide ? 1.6 : (isTablet ? 1.3 : 3.2),
                     children: items
                         .map((item) => ItemCard(item: item))
                         .toList(),
