@@ -61,3 +61,31 @@ Seluruh hasil ditinjau kembali dan disesuaikan secara manual dengan kebutuhan pr
 1. Analisis rubrik tugas dan buat checklist implementasi Flutter.
 2. Rapikan struktur kode aplikasi menjadi model dan widget yang modular.
 3. Sesuaikan kartu aksi, pesan `SnackBar`, dan tata letak responsif dengan rubrik.
+
+### Evaluasi bantuan AI dan perbaikan manual
+
+AI dapat menghasilkan saran kode atau dokumentasi yang tampak benar tetapi belum tentu sesuai dengan rubrik, data pribadi, atau perilaku aplikasi. Karena itu, hasil bantuan AI ditinjau dan disesuaikan secara manual: identitas pemilik diganti dengan data proyek, nama aksi disesuaikan dengan kebutuhan portofolio, pesan `SnackBar` dicocokkan dengan format tugas, dan jawaban reflektif ditulis serta diperiksa terpisah dari bantuan AI. Pemeriksaan akhir aplikasi dan `flutter analyze` tetap perlu dilakukan sebelum pengumpulan.
+
+## Progres pengerjaan
+
+| Tahap | Hasil |
+| --- | --- |
+| Tutorial 08 | Menyiapkan proyek Flutter dasar dan halaman portofolio. |
+| Tugas 7 - Struktur | Memisahkan halaman utama, model data, `InfoCard`, dan `ItemCard`. |
+| Tugas 7 - Interaksi | Menambahkan tiga aksi, warna berbeda, dan `SnackBar`. |
+| Tugas 7 - UI/UX | Menambahkan tata letak responsif untuk ponsel, tablet, dan layar lebar. |
+| Tugas 7 - Dokumentasi | Menambahkan setup, AI disclosure, dan jawaban reflektif. |
+
+### Tugas 7
+
+1\. Widget tree adalah struktur hierarkis widget yang membentuk antarmuka Flutter. Widget induk menyediakan konteks atau tata letak bagi widget anak; misalnya `Scaffold` menjadi induk untuk `AppBar` dan `body`, lalu `body` memuat `Column`, `Wrap`, serta kartu-kartu di dalamnya. Perubahan pada induk dapat memengaruhi cara anak disusun atau ditampilkan.
+
+2\. Proyek ini menggunakan `MaterialApp` sebagai root aplikasi, `Scaffold` dan `AppBar` sebagai kerangka halaman, serta `SafeArea` dan `SingleChildScrollView` agar konten aman dan dapat digulir. `LayoutBuilder`, `Column`, `Wrap`, dan `GridView.count` menyusun tampilan secara responsif. `InfoCard` memakai `Card`, `Padding`, `SizedBox`, dan `Text` untuk identitas; `ItemCard` memakai `Material`, `InkWell`, `Icon`, dan `Text` untuk kartu aksi. `ScaffoldMessenger` dan `SnackBar` menampilkan pesan ketika kartu ditekan.
+
+3\. `MaterialApp` menyediakan fondasi aplikasi berbasis Material Design, seperti tema, navigasi, lokalitas, dan halaman awal. Widget ini biasanya menjadi root karena konfigurasi tersebut dapat digunakan secara konsisten oleh seluruh widget di bawahnya. Pada proyek ini, `MaterialApp` mengatur tema dan menjadikan `MyHomePage` sebagai halaman awal.
+
+4\. `StatelessWidget` tidak menyimpan state yang berubah, sehingga cocok untuk tampilan tetap seperti `InfoCard` dan `ItemCard` pada proyek ini. `StatefulWidget` memiliki objek `State` yang dapat berubah dan membangun ulang tampilan melalui `setState()`. Saya memilih `StatefulWidget` ketika antarmuka harus berubah selama aplikasi berjalan, misalnya untuk input formulir, status memuat, atau data proyek yang diperbarui.
+
+5\. `BuildContext` adalah posisi sebuah widget di dalam widget tree. Context penting untuk mengakses fasilitas dari widget induk, misalnya `Theme.of(context)` untuk tema dan `ScaffoldMessenger.of(context)` untuk menampilkan `SnackBar`. Context diterima oleh metode `build`, lalu digunakan saat widget membangun tampilannya.
+
+6\. Hot reload memasukkan perubahan kode ke aplikasi yang masih berjalan dan mempertahankan state, sehingga cocok untuk perubahan UI atau logika di dalam `build`. Hot restart membangun ulang aplikasi dan menghapus state saat ini. Saya perlu melakukan hot restart ketika mengubah inisialisasi aplikasi atau state awal yang tidak diterapkan oleh hot reload; full restart diperlukan jika aplikasi atau proses Flutter harus dijalankan ulang sepenuhnya, misalnya setelah perubahan konfigurasi native atau dependensi.
