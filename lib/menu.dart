@@ -101,9 +101,8 @@ class MyHomePage extends StatelessWidget {
                     mainAxisSpacing: 12,
                     crossAxisSpacing: 12,
                     childAspectRatio: isWide ? 1.6 : (isTablet ? 1.3 : 3.2),
-                    children: items
-                        .map((item) => ItemCard(item: item))
-                        .toList(),
+                    children:
+                        items.map((item) => ItemCard(item: item)).toList(),
                   ),
                 ],
               ),
