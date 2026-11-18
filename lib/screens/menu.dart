@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myportofolio_mobile/models/item_homepage.dart';
 import 'package:myportofolio_mobile/widgets/info_card.dart';
-import 'package:myportofolio_mobile/widgets/item_card.dart';
+import 'package:myportofolio_mobile/widgets/left_drawer.dart';
+import 'package:myportofolio_mobile/widgets/project_card.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -40,6 +41,7 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Colors.white,
       ),
+      drawer: const LeftDrawer(),
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {

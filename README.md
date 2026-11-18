@@ -14,12 +14,15 @@ MyPortfolio Mobile adalah aplikasi portofolio pribadi berbasis Flutter untuk tug
 ```text
 lib/
 ├── main.dart                    # Konfigurasi MaterialApp dan titik masuk aplikasi
-├── menu.dart                    # Halaman utama portofolio
 ├── models/
 │   └── item_homepage.dart       # Model data untuk kartu aksi
+├── screens/
+│   ├── menu.dart                # Halaman utama portofolio
+│   └── project_form.dart        # Form tambah proyek
 └── widgets/
     ├── info_card.dart           # Widget kartu informasi profil
-    └── item_card.dart           # Widget kartu aksi yang interaktif
+    ├── left_drawer.dart         # Drawer navigasi
+    └── project_card.dart        # Widget kartu aksi yang interaktif
 ```
 
 ## Menjalankan aplikasi
