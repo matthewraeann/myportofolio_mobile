@@ -111,7 +111,10 @@ AI dapat menghasilkan saran kode atau dokumentasi yang tampak benar tetapi belum
 
 ### Tugas 8
 
-1. ...
-2. ...
-3. ...
-4. ...
+1\. `Navigator.push()` menambahkan halaman baru di atas halaman saat ini sehingga halaman sebelumnya tetap ada di stack dan pengguna bisa kembali. `Navigator.pushReplacement()` mengganti halaman saat ini dengan halaman baru sehingga halaman lama dibuang dari stack dan tidak bisa dikembalikan dengan tombol kembali. `Navigator.pop()` menutup halaman paling atas dan kembali ke halaman di bawahnya; metode ini juga dipakai untuk menutup dialog. Kartu aksi membuka formulir dengan `Navigator.push()` agar tombol kembali bawaan tersedia. Opsi **Home** di drawer memakai `Navigator.pushReplacement()` ke `MyHomePage`, sehingga halaman formulir diganti halaman utama dan stack tidak menumpuk setiap kali berpindah lewat drawer.
+
+2\. `Scaffold` menjadi kerangka tetap (`appBar`, `drawer`, `body`), `AppBar` menampilkan judul di posisi yang sama, dan `Drawer` (`LeftDrawer`) menyediakan navigasi yang sama di semua halaman, sehingga pengguna selalu menemukan struktur yang sama. Contoh warna tema: `Colors.indigo` dipakai pada `AppBar` di `ProjectFormPage` dan `ExperienceFormPage`, pada `DrawerHeader` di `LeftDrawer`, dan pada tombol **Simpan**; halaman utama memakai `colorScheme.primary` yang berasal dari tema aplikasi.
+
+3\. Formulir memakai `SingleChildScrollView` yang membungkus `Column` berisi input. Setiap input dibungkus `Padding` agar ada jarak antar kolom dan dari tepi layar. Saat ruang terbatas, misalnya di layar sempit atau saat papan ketik tampil, konten dapat digulir sehingga semua input dan tombol **Simpan** tetap dapat dijangkau dan tidak terjadi overflow. Susunan satu kolom vertikal dipilih karena mudah dibaca dan diisi berurutan di ponsel.
+
+4\. `GlobalKey<FormState>` memberi akses ke `FormState` dari `Form`. Saat **Simpan** ditekan, `_formKey.currentState!.validate()` menjalankan semua `validator` pada `TextFormField`. Setiap `validator` mengembalikan `String` pesan kesalahan jika isian tidak valid atau `null` jika valid; pesan tampil di bawah kolom terkait, dan dialog ringkasan hanya muncul jika `validate()` bernilai `true`. Contoh nilai yang ditolak: Posisi berisi hanya spasi `"   "` (ditolak karena kosong setelah `trim()`), atau tautan `abc` (ditolak karena bukan URL http/https). Jenis input atau papan ketik saja belum cukup karena itu hanya mengatur tampilan input, bukan isi yang diterima: `TextInputType.url` tetap mengizinkan `abc`, dan pengguna tetap bisa mengirim kolom kosong atau tanggal selesai sebelum tanggal mulai, sehingga aturan tetap harus diperiksa di `validator`.
