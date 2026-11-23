@@ -8,6 +8,9 @@ MyPortfolio Mobile adalah aplikasi portofolio pribadi berbasis Flutter untuk tug
 - Menampilkan tiga aksi portofolio: **Lihat Proyek**, **Tambah Proyek**, dan **Logout**.
 - Memberikan warna, ikon, dan pesan `SnackBar` yang berbeda sesuai aksi yang dipilih.
 - Menyesuaikan tata letak untuk ponsel, tablet, dan layar lebar.
+- Menyediakan drawer navigasi (**Home**, **Add Project**, **Add Experience**) yang dipakai di semua halaman.
+- Menyediakan form **Tambah Proyek** dan **Tambah Pengalaman** dengan validasi dan dialog ringkasan.
+- Form pengalaman memakai `showDatePicker()` untuk tanggal mulai/selesai (selesai tidak boleh sebelum mulai), batas panjang teks, dan validasi URL opsional.
 
 ## Struktur proyek
 
@@ -15,8 +18,10 @@ MyPortfolio Mobile adalah aplikasi portofolio pribadi berbasis Flutter untuk tug
 lib/
 ├── main.dart                    # Konfigurasi MaterialApp dan titik masuk aplikasi
 ├── models/
+│   ├── experience.dart          # Model data pengalaman
 │   └── item_homepage.dart       # Model data untuk kartu aksi
 ├── screens/
+│   ├── experience_form.dart     # Form tambah pengalaman
 │   ├── menu.dart                # Halaman utama portofolio
 │   └── project_form.dart        # Form tambah proyek
 └── widgets/
@@ -57,6 +62,8 @@ OpenAI Codex digunakan sebagai asisten pengembangan untuk menelaah rubrik tugas,
 - menyusun tata letak responsif untuk ukuran layar yang berbeda;
 - menyusun dokumentasi proyek ini.
 
+Pada Tugas 8, Claude Code digunakan untuk membaca soal tugas, merancang dan menulis `Experience`, `ExperienceFormPage`, opsi drawer, serta kartu aksi dengan `pageBuilder` pada `ItemHomepage`, menjalankan `flutter analyze`, dan memperbarui dokumentasi ini.
+
 Seluruh hasil ditinjau kembali dan disesuaikan secara manual dengan kebutuhan proyek. AI tidak digunakan untuk menjawab pertanyaan reflektif tugas.
 
 ### Log prompting ringkas
@@ -65,6 +72,11 @@ Seluruh hasil ditinjau kembali dan disesuaikan secara manual dengan kebutuhan pr
 2. Rapikan struktur kode aplikasi menjadi model dan widget yang modular.
 3. Sesuaikan kartu aksi, pesan `SnackBar`, dan tata letak responsif dengan rubrik.
 Link: https://chatgpt.com/s/cx_6afaede060b08191b247f39639ce2b5f
+
+Tugas 8:
+
+4. Baca rubrik Tugas 8 dan rencanakan form baru (Pengalaman) beserta navigasinya.
+5. Implementasikan model, halaman form dengan validasi, opsi drawer, dan kartu aksi.
 
 ### Evaluasi bantuan AI dan perbaikan manual
 
@@ -79,6 +91,9 @@ AI dapat menghasilkan saran kode atau dokumentasi yang tampak benar tetapi belum
 | Tugas 7 - Interaksi | Menambahkan tiga aksi, warna berbeda, dan `SnackBar`. |
 | Tugas 7 - UI/UX | Menambahkan tata letak responsif untuk ponsel, tablet, dan layar lebar. |
 | Tugas 7 - Dokumentasi | Menambahkan setup, AI disclosure, dan jawaban reflektif. |
+| Tutorial 09 | Menambahkan drawer navigasi dan form Tambah Proyek. |
+| Tugas 8 - Form | Menambahkan model `Experience` dan form Tambah Pengalaman dengan validasi serta dialog ringkasan. |
+| Tugas 8 - Navigasi | Menambahkan kartu aksi (`Navigator.push`) dan opsi drawer untuk form pengalaman. |
 
 ### Tugas 7
 
@@ -93,3 +108,10 @@ AI dapat menghasilkan saran kode atau dokumentasi yang tampak benar tetapi belum
 5\. `BuildContext` adalah posisi sebuah widget di dalam widget tree. Context penting untuk mengakses fasilitas dari widget induk, misalnya `Theme.of(context)` untuk tema dan `ScaffoldMessenger.of(context)` untuk menampilkan `SnackBar`. Context diterima oleh metode `build`, lalu digunakan saat widget membangun tampilannya.
 
 6\. Hot reload memasukkan perubahan kode ke aplikasi yang masih berjalan dan mempertahankan state, sehingga cocok untuk perubahan UI atau logika di dalam `build`. Hot restart membangun ulang aplikasi dan menghapus state saat ini. Saya perlu melakukan hot restart ketika mengubah inisialisasi aplikasi atau state awal yang tidak diterapkan oleh hot reload; full restart diperlukan jika aplikasi atau proses Flutter harus dijalankan ulang sepenuhnya, misalnya setelah perubahan konfigurasi native atau dependensi.
+
+### Tugas 8
+
+1. ...
+2. ...
+3. ...
+4. ...
