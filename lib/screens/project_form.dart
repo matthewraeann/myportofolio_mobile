@@ -202,7 +202,7 @@ class _ProjectFormPageState extends State<ProjectFormPage> {
                       }
                     },
                     child: const Text(
-                      "Save",
+                      "Simpan",
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
