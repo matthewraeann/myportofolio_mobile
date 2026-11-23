@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myportofolio_mobile/models/item_homepage.dart';
+import 'package:myportofolio_mobile/screens/experience_form.dart';
+import 'package:myportofolio_mobile/screens/project_form.dart';
 import 'package:myportofolio_mobile/widgets/info_card.dart';
 import 'package:myportofolio_mobile/widgets/left_drawer.dart';
 import 'package:myportofolio_mobile/widgets/project_card.dart';
@@ -11,8 +13,8 @@ class MyHomePage extends StatelessWidget {
   final String nama = 'Matthew Raeann Alexandra';
   final String kelas = 'PBP B';
 
-  static const List<ItemHomepage> items = [
-    ItemHomepage(
+  static final List<ItemHomepage> items = [
+    const ItemHomepage(
       name: 'Lihat Proyek',
       icon: Icons.folder_outlined,
       color: Color(0xFF4F46A5),
@@ -20,9 +22,16 @@ class MyHomePage extends StatelessWidget {
     ItemHomepage(
       name: 'Tambah Proyek',
       icon: Icons.add_circle_outline,
-      color: Color(0xFFD97706),
+      color: const Color(0xFFD97706),
+      pageBuilder: (context) => const ProjectFormPage(),
     ),
     ItemHomepage(
+      name: 'Tambah Pengalaman',
+      icon: Icons.work_outline,
+      color: const Color(0xFF2563EB),
+      pageBuilder: (context) => const ExperienceFormPage(),
+    ),
+    const ItemHomepage(
       name: 'Logout',
       icon: Icons.logout,
       color: Color(0xFF0F766E),

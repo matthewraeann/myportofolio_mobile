@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:myportofolio_mobile/models/item_homepage.dart';
-import 'package:myportofolio_mobile/screens/project_form.dart';
 
 /// Kartu aksi portofolio dengan warna, ikon, dan umpan balik sentuhan.
 ///
@@ -27,11 +26,12 @@ class ItemCard extends StatelessWidget {
               ),
             );
 
-          // Navigate ke halaman yang sesuai
-          if (item.name == 'Tambah Proyek') {
+          // Navigate ke halaman tujuan kartu, jika ada
+          final pageBuilder = item.pageBuilder;
+          if (pageBuilder != null) {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const ProjectFormPage()),
+              MaterialPageRoute(builder: pageBuilder),
             );
           }
         },

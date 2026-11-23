@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:myportofolio_mobile/screens/experience_form.dart';
 import 'package:myportofolio_mobile/screens/menu.dart';
 import 'package:myportofolio_mobile/screens/project_form.dart';
 
-/// Drawer navigasi untuk berpindah antara halaman utama dan form tambah proyek.
+/// Drawer navigasi untuk berpindah antara halaman utama dan form tambah
+/// proyek maupun pengalaman.
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
 
@@ -59,6 +61,19 @@ class LeftDrawer extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const ProjectFormPage(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.work_outline),
+            title: const Text('Add Experience'),
+            // Navigasi ke halaman tambah pengalaman
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ExperienceFormPage(),
                 ),
               );
             },
