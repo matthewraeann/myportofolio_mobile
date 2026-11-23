@@ -73,7 +73,7 @@ Seluruh hasil ditinjau kembali dan disesuaikan secara manual dengan kebutuhan pr
 3. Sesuaikan kartu aksi, pesan `SnackBar`, dan tata letak responsif dengan rubrik.
 Link: https://chatgpt.com/s/cx_6afaede060b08191b247f39639ce2b5f
 
-Tugas 8:
+Tugas 8 (Claude Code tidak menyediakan tautan berbagi chat, sehingga transkripnya disimpan di [`ai-log/tugas-8-claude-code-transcript.md`](ai-log/tugas-8-claude-code-transcript.md)):
 
 4. Baca rubrik Tugas 8 dan rencanakan form baru (Pengalaman) beserta navigasinya.
 5. Implementasikan model, halaman form dengan validasi, opsi drawer, dan kartu aksi.
