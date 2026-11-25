@@ -14,3 +14,6 @@ pubspec_overrides.yaml
 # OS
 .DS_Store
 Thumbs.db
+
+# Generated json_serializable files
+*.g.dart
