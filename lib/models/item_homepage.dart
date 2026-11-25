@@ -10,6 +10,8 @@ class ItemHomepage {
     required this.icon,
     required this.color,
     this.pageBuilder,
+    this.requiresAuth = false,
+    this.isLogout = false,
   });
 
   final String name;
@@ -18,4 +20,10 @@ class ItemHomepage {
 
   /// Pembangun halaman tujuan; kartu tanpa tujuan hanya menampilkan SnackBar.
   final WidgetBuilder? pageBuilder;
+
+  /// Jika true, pengguna harus login sebelum membuka halaman tujuan.
+  final bool requiresAuth;
+
+  /// Jika true, kartu ini mengeluarkan pengguna (logout) saat ditekan.
+  final bool isLogout;
 }
