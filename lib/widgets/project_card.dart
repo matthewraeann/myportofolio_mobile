@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myportofolio_mobile/models/item_homepage.dart';
+import 'package:myportofolio_mobile/screens/login_screen.dart';
 import 'package:myportofolio_mobile/services/auth_state.dart';
 import 'package:myportofolio_mobile/widgets/auth_guard.dart';
 import 'package:provider/provider.dart';
@@ -19,17 +20,14 @@ class ItemCard extends StatelessWidget {
 
     if (item.isLogout) {
       final auth = context.read<AuthState>();
-      final wasLoggedIn = auth.isLoggedIn;
+      if (!auth.isLoggedIn) {
+        navigator.push(MaterialPageRoute(builder: (_) => const LoginScreen()));
+        return;
+      }
       await auth.logout();
       messenger
         ..hideCurrentSnackBar()
-        ..showSnackBar(
-          SnackBar(
-            content: Text(
-              wasLoggedIn ? 'Kamu berhasil logout.' : 'Kamu belum login.',
-            ),
-          ),
-        );
+        ..showSnackBar(const SnackBar(content: Text('Kamu berhasil logout.')));
       return;
     }
 
@@ -50,6 +48,11 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Kartu logout berubah menjadi Login ketika pengguna belum masuk.
+    final showLogin = item.isLogout && !context.watch<AuthState>().isLoggedIn;
+    final icon = showLogin ? Icons.login : item.icon;
+    final name = showLogin ? 'Login' : item.name;
+
     return Material(
       color: item.color,
       borderRadius: BorderRadius.circular(16),
@@ -61,10 +64,10 @@ class ItemCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(item.icon, color: Colors.white, size: 32),
+              Icon(icon, color: Colors.white, size: 32),
               const SizedBox(height: 8),
               Text(
-                item.name,
+                name,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   color: Colors.white,
